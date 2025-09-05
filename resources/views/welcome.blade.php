@@ -48,26 +48,17 @@
     @endif
 
     {{-- Main Content --}}
-    <main class="container d-flex flex-column flex-lg-row align-items-center justify-content-center flex-grow-1 py-5">
-        <div class="card shadow-sm w-100 w-lg-75">
-            <div class="card-body">
-                <h1 class="card-title mb-3">Let's get started</h1>
-                <p class="text-secondary mb-4">Laravel has an incredibly rich ecosystem.<br>We suggest starting with the
-                    following.</p>
-
-                <ul class="list-unstyled mb-4">
-                    <li class="mb-2 d-flex align-items-center">
-                        <i class="fas fa-circle text-secondary me-2" style="font-size: 0.5rem;"></i>
-                        <a href="https://laravel.com/docs" target="_blank"
-                            class="text-danger text-decoration-underline">
-                            Documentation <i class="fas fa-arrow-up-right-from-square ms-1"></i>
-                        </a>
-                    </li>
-                </ul>
-
-                <a href="https://cloud.laravel.com" target="_blank" class="btn btn-dark text-white"><i
-                        class="fas fa-cloud-upload-alt me-1"></i> Deploy now</a>
-            </div>
+    <main class="container py-5">
+        <h1 class="mb-4">Featured Products</h1>
+        <div class="row">
+            @foreach($products as $product)
+                <div class="col-md-3 mb-4">
+                    <x-product-card :product="$product" />
+                </div>
+            @endforeach
+        </div>
+        <div class="text-center mt-4">
+            <a href="{{ route('products.index') }}" class="btn btn-outline-primary">View All Products</a>
         </div>
     </main>
 
